@@ -1,0 +1,10 @@
+{
+  "name": "lucasmcar/tiny-core-lib",
+  "description": "Biblioteca core com suporte a JWT, CSRF e Views",
+  "autoload": {
+    "psr-4": {
+      "Core\\": "Source/"
+    }
+  },
+  "require": {}
+}
