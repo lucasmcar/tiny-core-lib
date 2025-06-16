@@ -4,8 +4,12 @@
   "autoload": {
     "psr-4": {
       "Core\\": "Source/Core/"
-    }
+    },
+    "files": [
+        "Source/Core/view_base_path.php"
+    ]
   },
+  
   "require-dev": {
     "phpunit/phpunit": "^12.2"
   },

@@ -1,1 +1,1 @@
-{"version":1,"defects":{"Core\\Tests\\ViewsTest::testRenderReturnsString":5},"times":{"Core\\Tests\\ViewsTest::testRenderReturnsString":0.413}}
+{"version":1,"defects":{"Core\\Tests\\ViewsTest::testRenderReturnsString":5},"times":{"Core\\Tests\\ViewsTest::testRenderReturnsString":145.622}}
