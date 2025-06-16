@@ -6,6 +6,7 @@ namespace Core\View;
 use Core\Security\Csrf;
 use Core\View\Registers\Register;
 
+
 use function Core\view_base_path;
 
 class View 
@@ -51,7 +52,12 @@ class View
     public function render($template)
     {
         //$templatePath = dirname(__DIR__, 3) .'/resources/views/' . $template . '.tpl';
-        $templatePath = realpath(view_base_path().'/resources/views/' . $template . '.tpl');
+        if(defined('PROJECT_VIEW_PATH')){
+            $templatePath = realpath(view_base_path().'/' . $template . '.tpl');
+        } else {
+            $templatePath = realpath(view_base_path().'/resources/views/' . $template . '.tpl');
+        }
+        
         if (!file_exists($templatePath)) {
             throw new \Exception("Template $templatePath not found!");
         }
@@ -67,7 +73,12 @@ class View
 
         if ($this->layout) {
             //$layoutPath = dirname(__DIR__, 3).'/resources/views/layouts/' . $this->layout . '.tpl';
-            $layoutPath = realpath(view_base_path().'/resources/views/layouts/' . $this->layout . '.tpl');
+            if(defined('PROJECT_VIEW_PATH')){
+                 $layoutPath = realpath(view_base_path()."/layouts/" . $this->layout . '.tpl');
+            } else {
+                 $layoutPath = realpath(view_base_path().'/resources/views/layouts/' . $this->layout . '.tpl');
+            }
+           
     
             if (!file_exists($layoutPath)) {
                 throw new \Exception("Layout $layoutPath not found!");

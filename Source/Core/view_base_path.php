@@ -11,6 +11,7 @@ if (!function_exists('view_base_path')) {
         }
 
         // Caminho padrão: views dentro da lib
-        return dirname(__DIR__, 2);
+        $path = dirname(__DIR__, 2);
+        return $path;
     }
 }
