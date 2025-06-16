@@ -3,7 +3,7 @@
   "description": "Biblioteca core com suporte a JWT, CSRF e Views",
   "autoload": {
     "psr-4": {
-      "Core\\": "Source/"
+      "Core\\": "Source/Core"
     }
   },
   "require": {}
