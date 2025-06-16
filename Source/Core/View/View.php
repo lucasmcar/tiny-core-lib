@@ -1,10 +1,10 @@
 <?php
 
-namespace Source\Core\View;
+namespace Core\View;
 
 
-use Source\Core\Security\Csrf;
-use Source\Core\View\Registers\Register;
+use Core\Security\Csrf;
+use Core\View\Registers\Register;
 
 
 class View 

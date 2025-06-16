@@ -1,5 +1,5 @@
 <?php
-namespace Source\Core\Security\Jwt;
+namespace Core\Security\Jwt;
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;

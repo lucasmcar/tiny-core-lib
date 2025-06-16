@@ -1,6 +1,6 @@
 <?php 
 
-namespace Source\Core\View\Template;
+namespace Core\View\Template;
 
 class Template
 {

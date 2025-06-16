@@ -1,6 +1,6 @@
 <?php 
 
-namespace Source\Core\Security;
+namespace Core\Security;
 
 class Csrf
 {

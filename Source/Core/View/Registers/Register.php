@@ -1,6 +1,6 @@
 <?php
 
-namespace Source\Core\View\Registers;
+namespace Core\View\Registers;
 
 class Register
 {
