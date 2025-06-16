@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\View;
+namespace Source\Core\View;
 
 
 use Source\Core\Security\Csrf;
