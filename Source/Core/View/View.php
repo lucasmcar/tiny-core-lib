@@ -49,8 +49,8 @@ class View
 
     public function render($template)
     {
-        $templatePath = realpath('../resources/views/' . $template . '.tpl');
-
+        //$templatePath = dirname(__DIR__, 3) .'/resources/views/' . $template . '.tpl';
+        $templatePath = realpath('resources/views/' . $template . '.tpl');
         if (!file_exists($templatePath)) {
             throw new \Exception("Template $templatePath not found!");
         }
@@ -65,7 +65,8 @@ class View
 
 
         if ($this->layout) {
-            $layoutPath =  realpath('../resources/views/layouts/' . $this->layout . '.tpl');
+            //$layoutPath = dirname(__DIR__, 3).'/resources/views/layouts/' . $this->layout . '.tpl';
+            $layoutPath = realpath('resources/views/layouts/' . $this->layout . '.tpl');
     
             if (!file_exists($layoutPath)) {
                 throw new \Exception("Layout $layoutPath not found!");
