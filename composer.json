@@ -1,6 +1,8 @@
 {
   "name": "lucasmcar/tiny-core-lib",
   "description": "Biblioteca core com suporte a JWT, CSRF e Views",
+  "type": "library",
+  "license": "MIT",
   "autoload": {
     "psr-4": {
       "Core\\": "Source/Core/"
