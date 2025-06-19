@@ -1,0 +1,2 @@
+![Build](https://github.com/lucasmcar/tiny-core-lib/actions/workflows/phpunit.yml/badge.svg)
+[![codecov](https://codecov.io/gh/lucasmcar/tiny-core-lib/branch/master/graph/badge.svg?token=CODECOV_TOKEN)](https://codecov.io/gh/lucasmcar/tiny-core-mvc)
