@@ -8,7 +8,8 @@
       "Core\\": "Source/Core/"
     },
     "files": [
-        "Source/Core/view_base_path.php"
+        "Source/Core/view_base_path.php",
+        "Source/Core/Helper/base_url.php"
     ]
   },
   "require": {
