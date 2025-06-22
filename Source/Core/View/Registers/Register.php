@@ -58,10 +58,10 @@ class Register
         '<?php print_r(htmlspecialchars(print_r($1, true), ENT_QUOTES, "UTF-8")); ?>',
 
         // CSS seguro (apenas arquivos locais permitidos)
-        '<?php if (preg_match("/^[a-zA-Z0-9_\-\/\.]+\\.css$/", "$1")): ?><link rel="stylesheet" href="<?php echo htmlspecialchars("$1", ENT_QUOTES, "UTF-8"); ?>"><?php endif; ?>',
+        '<?php if (filter_var("$1", FILTER_VALIDATE_URL) || preg_match("/^[a-zA-Z0-9_\-\/\.]+\.css$/", "$1")): ?><link rel="stylesheet" href="<?php echo htmlspecialchars("$1", ENT_QUOTES, "UTF-8"); ?>"><?php endif; ?>',
 
         // JS seguro (apenas arquivos locais permitidos)
-        '<?php if (preg_match("/^[a-zA-Z0-9_\-\/\.]+\\.js$/", "$1")): ?><script src="<?php echo htmlspecialchars("$1", ENT_QUOTES, "UTF-8"); ?>"></script><?php endif; ?>',
+        '<?php if (preg_match("/^(https?:\/\/[a-zA-Z0-9\-\.\/:_?&=]+|[a-zA-Z0-9_\-\/\.]+\.js)$/", "$1")): ?><script src="<?php echo htmlspecialchars("$1", ENT_QUOTES, "UTF-8"); ?>"></script><?php endif; ?>',
 
         '<input type="hidden" name="_csrf_token" id="_csrf_token" value="<?php echo htmlspecialchars($this->vars[\'csrf_token\'], ENT_QUOTES, \'UTF-8\'); ?>">',
 
