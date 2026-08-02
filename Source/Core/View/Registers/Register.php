@@ -52,7 +52,18 @@ class Register
         '<?php endwhile; ?>',
 
         // include seguro
-        '<?php $path = realpath(__DIR__ . "/../../views/$1.tpl"); if ($path && strpos($path, realpath(__DIR__ . "/../../views")) === 0 && file_exists($path)) include $path; ?>',
+        /*'<?php $path = realpath(__DIR__ . "/../../views/$1.tpl"); if ($path && strpos($path, realpath(__DIR__ . "/../../views")) === 0 && file_exists($path)) include $path; ?>',*/
+        '<?php 
+            if (defined("PROJECT_VIEW_PATH")) {
+                $__base = realpath(\Core\view_base_path());
+            } else {
+                $__base = realpath(\Core\view_base_path() . "/resources/views");
+            }
+            $__path = $__base ? realpath($__base . "/$1.tpl") : false;
+            if ($__path && $__base && ($__path === $__base || strpos($__path, $__base . DIRECTORY_SEPARATOR) === 0) && file_exists($__path)) {
+                include $__path;
+            }
+        ?>',
 
         // debugger - uso interno somente
         '<?php print_r(htmlspecialchars(print_r($1, true), ENT_QUOTES, "UTF-8")); ?>',
