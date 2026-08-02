@@ -53,7 +53,7 @@ class Register
 
         // include seguro
         /*'<?php $path = realpath(__DIR__ . "/../../views/$1.tpl"); if ($path && strpos($path, realpath(__DIR__ . "/../../views")) === 0 && file_exists($path)) include $path; ?>',*/
-        '<?php 
+        /*'<?php 
             if (defined("PROJECT_VIEW_PATH")) {
                 $__base = realpath(\Core\view_base_path());
             } else {
@@ -62,6 +62,17 @@ class Register
             $__path = $__base ? realpath($__base . "/$1.tpl") : false;
             if ($__path && $__base && ($__path === $__base || strpos($__path, $__base . DIRECTORY_SEPARATOR) === 0) && file_exists($__path)) {
                 include $__path;
+            }
+        ?>',*/
+        '<?php
+            if (defined("PROJECT_VIEW_PATH")) {
+                $__base = realpath(\Core\view_base_path());
+            } else {
+                $__base = realpath(\Core\view_base_path() . "/resources/views");
+            }
+            $__path = $__base ? realpath($__base . "/$1.tpl") : false;
+            if ($__path && $__base && ($__path === $__base || strpos($__path, $__base . DIRECTORY_SEPARATOR) === 0) && file_exists($__path)) {
+                \Core\View\Registers\Register::renderInclude($__path, get_defined_vars());
             }
         ?>',
 
@@ -90,5 +101,21 @@ class Register
     public static function getReplacements(): array
     {
         return self::$replacements;
+    }
+
+    public static function renderInclude(string $path, array $vars): void
+    {
+        $content = file_get_contents($path);
+        $parsed = preg_replace(self::$patterns, self::$replacements, $content);
+
+        extract($vars);
+
+        $tempFile = tempnam(sys_get_temp_dir(), 'inc');
+        file_put_contents($tempFile, $parsed);
+        try {
+            include $tempFile;
+        } finally {
+            @unlink($tempFile);
+        }
     }
 }
